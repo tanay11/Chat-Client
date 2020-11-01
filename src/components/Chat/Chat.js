@@ -13,10 +13,11 @@ export const Chat = ({location}) =>{
     const [room, setRoom] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([])
-    const serverEndpoint = "https://chat-server-tanay.herokuapp.com";
+    const serverEndpoint = "localhost:5000";
 
     useEffect(() => {
         const {room, name} = queryString.parse(location.search);
+        console.log("name0",name,room,queryString.parse(location.search))
         setName(name);
         setRoom(room);
         socket = io(serverEndpoint);
